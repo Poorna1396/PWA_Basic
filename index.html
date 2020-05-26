@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab7</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" type="image/ico" sizes="48x48">
+    <link rel="manifest" href="./manifest.json">
+    <script>
+        function validate(){
+            if(document.getElementById('email').value === 'poorna@email.com' && document.getElementById('pass').value === 'poorna'){
+                window.location = 'welcome.html';
+            }else{
+                window.location = 'failure.html';
+            }
+        }
+    </script>
+</head>
+
+<body align="center">
+    <center>
+        <form method="post">
+            <table border="2" style="margin: 2px;padding:2px">
+                <caption>User Login</caption>
+                <tr>
+                    <td>Username : </td>
+                    <td><input type="email" id="email" name="email" placeholder="Enter Email" required></td>
+                </tr>
+                <tr>
+                    <td>Password : </td>
+                    <td><input type="password" id="pass" name="pass" placeholder="Enter Password" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="button" value="Login" onclick="validate()"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>
